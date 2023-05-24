@@ -71,6 +71,36 @@ const nav = () => {
           </>
         )}
       </div>
+
+      {/* Mobile Navigation */}
+      <div className="sm:hidden flex relative">
+        {isUserLoggedIn ? (
+          <div className="flex">
+            <Image
+              src="/assets/images/logo.svg"
+              alt="Promptopia Logo"
+              width={30}
+              height={30}
+              className="object-contain"
+              onClick={() => {}}
+            />
+          </div>
+        ) : (
+          <>
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  type="button"
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                  className="black_btn"
+                >
+                  Sign In
+                </button>
+              ))}
+          </>
+        )}
+      </div>
     </nav>
   );
 };
